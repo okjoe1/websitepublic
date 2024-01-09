@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,5 +41,63 @@
 		</ul>
 		
 	</body>
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #chat-box {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        #message-input {
+            width: 80%;
+            padding: 8px;
+        }
+
+        #send-button {
+            width: 18%;
+            padding: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="chat-box"></div>
+
+<input type="text" id="message-input" placeholder="Type your message...">
+<button id="send-button" onclick="sendMessage()">Send</button>
+
+<script>
+    function sendMessage() {
+        var messageInput = document.getElementById('message-input');
+        var message = messageInput.value;
+
+        if (message.trim() !== '') {
+            var chatBox = document.getElementById('chat-box');
+            var newMessage = document.createElement('p');
+            newMessage.textContent = message;
+            chatBox.appendChild(newMessage);
+
+            // Clear the input field after sending the message
+            messageInput.value = '';
+
+            // Scroll to the bottom of the chat box to show the latest message
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    }
+</script>
+
+</body>
 </html>
 
